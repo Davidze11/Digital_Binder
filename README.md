@@ -7,29 +7,29 @@ The work includes classic ML techniques, deep learning models, reinforcement lea
 
 ---
 
-📁 Project Areas
+  Project Areas
 
-🔹 Machine Learning (ML)
+ Machine Learning (ML)
 - Supervised & unsupervised learning  
 - Classification, regression, clustering  
 - Pandas, scikit-learn workflows  
 
-🔹 Deep Learning (DL)
+ Deep Learning (DL)
 - Neural networks (CNNs, RNNs)  
 - Image classification  
 - PyTorch model training  
 
-🔹 Reinforcement Learning (RL)
+ Reinforcement Learning (RL)
 - Q-Learning  
 - Reward shaping  
 - Exploration vs. exploitation  
 
-🔹 AI Wrappers
+ AI Wrappers
 - AI-powered data pipelines  
 - Automation using LLM-driven tools  
 - Extraction + transformation workflows  
 
-🔹 Multi-Agent Systems
+ Multi-Agent Systems
 - Data intake agent  
 - Schema detection agent  
 - Missing-value agent  
