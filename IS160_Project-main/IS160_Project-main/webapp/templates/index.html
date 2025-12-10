@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Disease Detection - AI-Powered Diagnosis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2v20M2 12h20"/>
+                        <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10"/>
+                    </svg>
+                    <span class="logo-text">Plant<span class="logo-highlight">AI</span></span>
+                </div>
+                <nav class="nav">
+                    <a href="#best-practices" class="nav-link">Best Practices</a>
+                    <a href="#supported" class="nav-link">Supported Plants</a>
+                    <a href="#features" class="nav-link">Features</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <svg class="badge-icon" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                    </svg>
+                    <span>AI-Powered Disease Detection</span>
+                </div>
+                <h1 class="hero-title">
+                    Protect Your Plants with
+                    <span class="gradient-text">Intelligent Diagnostics</span>
+                </h1>
+                <p class="hero-description">
+                    Upload a photo of your plant and receive instant, accurate disease diagnosis powered by advanced deep learning technology. Get expert treatment recommendations in seconds.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-value">99.9%</div>
+                        <div class="stat-label">Accuracy</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">27</div>
+                        <div class="stat-label">Diseases</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">&lt;1s</div>
+                        <div class="stat-label">Response Time</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upload Section -->
+    <section class="upload-section">
+        <div class="container">
+            <div class="upload-card">
+                <div class="upload-header">
+                    <h2 class="section-title">Upload Plant Image</h2>
+                    <p class="section-description">
+                        Take a clear photo of the affected plant leaf or upload an existing image for analysis
+                    </p>
+                    <div class="important-notice">
+                        <svg class="notice-icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"/>
+                        </svg>
+                        <div class="notice-content">
+                            <strong>Important:</strong> This AI is trained specifically on 8 crop types (Apple, Grape, Orange, Peach, Potato, Squash, Strawberry, Tomato). 
+                            For best results, only upload images of these plants. Images of other plants may produce incorrect results.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="upload-area" id="uploadArea">
+                    <input type="file" id="fileInput" accept="image/*" class="file-input" />
+                    <div class="upload-content" id="uploadContent">
+                        <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="17 8 12 3 7 8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                        <div class="upload-text">
+                            <span class="upload-text-main">Click to upload or drag and drop</span>
+                            <span class="upload-text-sub">PNG, JPG or JPEG (MAX. 16MB)</span>
+                        </div>
+                    </div>
+                    <div class="image-preview" id="imagePreview">
+                        <img id="previewImg" src="" alt="Preview" />
+                        <button class="remove-image" id="removeImage">
+                            <svg viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <button class="analyze-btn" id="analyzeBtn" disabled>
+                    <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z"/>
+                    </svg>
+                    <span id="analyzeBtnText">Analyze Plant</span>
+                </button>
+            </div>
+
+            <!-- Loading State -->
+            <div class="loading-container" id="loadingContainer">
+                <div class="loading-spinner"></div>
+                <p class="loading-text">Analyzing your plant image...</p>
+                <p class="loading-subtext">Our AI is examining leaf patterns, colors, and textures</p>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-container" id="resultsContainer">
+                <div class="result-card">
+                    <div class="result-header">
+                        <div class="result-icon" id="resultIcon">
+                            <!-- Icon will be dynamically inserted -->
+                        </div>
+                        <div class="result-title-section">
+                            <h3 class="result-title" id="resultTitle">Diagnosis Complete</h3>
+                            <p class="result-subtitle" id="resultSubtitle"></p>
+                        </div>
+                    </div>
+
+                    <div class="result-info">
+                        <div class="info-item">
+                            <span class="info-label">Plant Type</span>
+                            <span class="info-value" id="plantType">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Condition</span>
+                            <span class="info-value" id="diseaseType">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Confidence</span>
+                            <div class="confidence-bar">
+                                <div class="confidence-fill" id="confidenceFill"></div>
+                                <span class="confidence-text" id="confidenceText">-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Alternative Predictions -->
+                    <div class="alternative-predictions" id="alternativePredictions">
+                        <h4 class="alternatives-title">Alternative Predictions</h4>
+                        <div class="alternatives-list" id="alternativesList">
+                            <!-- Will be populated dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Disease Information -->
+                    <div class="disease-details" id="diseaseDetails">
+                        <div class="detail-section">
+                            <h4 class="detail-title">
+                                <svg class="detail-icon" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"/>
+                                </svg>
+                                Description
+                            </h4>
+                            <p class="detail-text" id="descriptionText"></p>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4 class="detail-title">
+                                <svg class="detail-icon" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"/>
+                                </svg>
+                                Symptoms
+                            </h4>
+                            <ul class="detail-list" id="symptomsList"></ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4 class="detail-title">
+                                <svg class="detail-icon" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z"/>
+                                </svg>
+                                Causes
+                            </h4>
+                            <ul class="detail-list" id="causesList"></ul>
+                        </div>
+
+                        <div class="detail-section treatment-section">
+                            <h4 class="detail-title">
+                                <svg class="detail-icon" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                                </svg>
+                                Treatment Recommendations
+                            </h4>
+                            <ul class="detail-list treatment-list" id="treatmentList"></ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4 class="detail-title">
+                                <svg class="detail-icon" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                                </svg>
+                                Prevention Tips
+                            </h4>
+                            <ul class="detail-list" id="preventionList"></ul>
+                        </div>
+                    </div>
+
+                    <div class="result-disclaimer">
+                        <h4 class="disclaimer-title">
+                            <svg class="disclaimer-icon" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"/>
+                            </svg>
+                            Result Seems Incorrect?
+                        </h4>
+                        <ul class="disclaimer-list">
+                            <li><strong>Verify Plant Type:</strong> This AI only works with Apple, Grape, Orange, Peach, Potato, Squash, Strawberry, and Tomato plants. Other plants will be misidentified.</li>
+                            <li><strong>Check Image Quality:</strong> Ensure your photo is clear, well-lit, and focused on the affected leaf area.</li>
+                            <li><strong>Review Top 3 Predictions:</strong> Check the alternative predictions above - the correct diagnosis might be there.</li>
+                            <li><strong>Consider Professional Consultation:</strong> For critical decisions, always consult with a local agricultural extension service or plant pathologist.</li>
+                            <li><strong>AI Limitations:</strong> While our model has 99.9% accuracy on test data, real-world conditions may vary. Use this tool as a guide, not absolute truth.</li>
+                        </ul>
+                    </div>
+
+                    <button class="action-btn" id="analyzeAnother">
+                        <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z"/>
+                        </svg>
+                        Analyze Another Plant
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Practices Section -->
+    <section class="best-practices" id="best-practices">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title-large">Tips for Accurate Results</h2>
+                <p class="section-description-large">
+                    Follow these guidelines to get the most accurate disease detection results
+                </p>
+            </div>
+
+            <div class="practices-grid">
+                <div class="practice-card">
+                    <div class="practice-number">1</div>
+                    <div class="practice-content">
+                        <h3 class="practice-title">Use Supported Plants Only</h3>
+                        <p class="practice-description">
+                            The AI is trained on 8 specific crops: Apple, Grape, Orange, Peach, Potato, Squash, Strawberry, and Tomato. 
+                            <strong>Using other plants will result in incorrect predictions.</strong>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="practice-card">
+                    <div class="practice-number">2</div>
+                    <div class="practice-content">
+                        <h3 class="practice-title">Good Lighting is Essential</h3>
+                        <p class="practice-description">
+                            Take photos in natural daylight or bright, even artificial lighting. Avoid shadows, backlighting, and dark conditions that can obscure leaf details.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="practice-card">
+                    <div class="practice-number">3</div>
+                    <div class="practice-content">
+                        <h3 class="practice-title">Focus on Affected Leaves</h3>
+                        <p class="practice-description">
+                            Capture clear, close-up images of leaves showing symptoms. The leaf should fill most of the frame. Avoid blurry or distant shots.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="practice-card">
+                    <div class="practice-number">4</div>
+                    <div class="practice-content">
+                        <h3 class="practice-title">Check Multiple Predictions</h3>
+                        <p class="practice-description">
+                            Always review the top 3 predictions and their confidence scores. If the top prediction has low confidence, consider the alternatives.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="practice-card">
+                    <div class="practice-number">5</div>
+                    <div class="practice-content">
+                        <h3 class="practice-title">Consult Professionals</h3>
+                        <p class="practice-description">
+                            This tool is a guide, not a replacement for expert advice. For important decisions, always consult local agricultural extension services or certified plant pathologists.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="practice-card">
+                    <div class="practice-number">6</div>
+                    <div class="practice-content">
+                        <h3 class="practice-title">Understand AI Limitations</h3>
+                        <p class="practice-description">
+                            Even with 99.9% accuracy on test data, AI can make mistakes with unusual cases, poor image quality, or plants outside its training data.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Supported Diseases Section -->
+    <section class="supported-diseases" id="supported">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title-large">Supported Plants & Diseases</h2>
+                <p class="section-description-large">
+                    Our AI system can detect 27 different conditions across 8 crop types with 99.9% accuracy
+                </p>
+            </div>
+
+            <div class="diseases-grid">
+                <!-- Apple -->
+                <div class="disease-category">
+                    <div class="category-header">
+                        <div class="category-icon">🍎</div>
+                        <h3 class="category-title">Apple</h3>
+                        <span class="category-count">4 conditions</span>
+                    </div>
+                    <ul class="disease-list">
+                        <li class="disease-item diseased">
+                            <svg class="disease-icon" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"/>
+                            </svg>
+                            <span>Apple Scab</span>
+                        </li>
+                        <li class="disease-item diseased">
+                            <svg class="disease-icon" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"/>
+                            </svg>
+                            <span>Black Rot</span>
+                        </li>
+                        <li class="disease-item diseased">
+                            <svg class="disease-icon" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"/>
+                            </svg>
+                            <span>Cedar Apple Rust</span>
+                        </li>
+                        <li class="disease-item healthy">
+                            <svg class="disease-icon" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                            </svg>
+                            <span>Healthy</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Grape -->
+                <div class="disease-category">
+                    <div class="category-header">
+                        <div class="category-icon">🍇</div>
+                        <h3 class="category-title">Grape</h3>
+                        <span class="category-count">4 conditions</span>
+                    </div>
+                    <ul class="disease-list">
+                        <li class="disease-item diseased">
+                            <svg class="disease-icon" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"/>
+                            </svg>
+                            <span>Black Rot</span>
+                        </li>
+                        <li class="disease-item diseased">
+                            <svg class="disease-icon" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"/>
+                            </svg>
+                            <span>Esca (Black Measles)</span>
+                        </li>
+                        <li class="disease-item diseased">
+                            <svg class="disease-icon" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"/>
+                            </svg>
+                            <span>Leaf Blight (Isariopsis Leaf Spot)</span>
+                        </li>
+                        <li class="disease-item healthy">
+                            <svg class="disease-icon" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                            </svg>
+                            <span>Healthy</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Orange -->
+                <div class="disease-category">
+                    <div class="category-header">
+                        <div class="category-icon">🍊</div>
+                        <h3 class="category-title">Orange</h3>
+                        <span class="category-count">1 condition</span>
+                    </div>
+                    <ul class="disease-list">
+                        <li class="disease-item diseased">
+                            <svg class="disease-icon" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"/>
+                            </svg>
+                            <span>Huanglongbing (Citrus Greening)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Peach -->
+                <div class="disease-category">
+                    <div class="category-header">
+                        <div class="category-icon">🍑</div>
+                        <h3 class="category-title">Peach</h3>
+                        <span class="category-count">2 conditions</span>
+                    </div>
+                    <ul class="disease-list">
+                        <li class="disease-item diseased">
+                            <svg class="disease-icon" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"/>
+                            </svg>
+                            <span>Bacterial Spot</span>
+                        </li>
+                        <li class="disease-item healthy">
+                            <svg class="disease-icon" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                            </svg>
+                            <span>Healthy</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Potato -->
+                <div class="disease-category">
+                    <div class="category-header">
+                        <div class="category-icon">🥔</div>
+                        <h3 class="category-title">Potato</h3>
+                        <span class="category-count">3 conditions</span>
+                    </div>
+                    <ul class="disease-list">
+                        <li class="disease-item diseased">
+                            <svg class="disease-icon" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"/>
+                            </svg>
+                            <span>Early Blight</span>
+                        </li>
+                        <li class="disease-item diseased">
+                            <svg class="disease-icon" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"/>
+                            </svg>
+                            <span>Late Blight</span>
+                        </li>
+                        <li class="disease-item healthy">
+                            <svg class="disease-icon" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                            </svg>
+                            <span>Healthy</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Squash -->
+                <div class="disease-category">
+                    <div class="category-header">
+                        <div class="category-icon">🎃</div>
+                        <h3 class="category-title">Squash</h3>
+                        <span class="category-count">1 condition</span>
+                    </div>
+                    <ul class="disease-list">
+                        <li class="disease-item diseased">
+                            <svg class="disease-icon" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"/>
+                            </svg>
+                            <span>Powdery Mildew</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Strawberry -->
+                <div class="disease-category">
+                    <div class="category-header">
+                        <div class="category-icon">🍓</div>
+                        <h3 class="category-title">Strawberry</h3>
+                        <span class="category-count">2 conditions</span>
+                    </div>
+                    <ul class="disease-list">
+                        <li class="disease-item diseased">
+                            <svg class="disease-icon" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"/>
+                            </svg>
+                            <span>Leaf Scorch</span>
+                        </li>
+                        <li class="disease-item healthy">
+                            <svg class="disease-icon" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                            </svg>
+                            <span>Healthy</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tomato -->
+                <div class="disease-category tomato-category">
+                    <div class="category-header">
+                        <div class="category-icon">🍅</div>
+                        <h3 class="category-title">Tomato</h3>
+                        <span class="category-count">10 conditions</span>
+                    </div>
+                    <ul class="disease-list">
+                        <li class="disease-item diseased">
+                            <svg class="disease-icon" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"/>
+                            </svg>
+                            <span>Bacterial Spot</span>
+                        </li>
+                        <li class="disease-item diseased">
+                            <svg class="disease-icon" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"/>
+                            </svg>
+                            <span>Early Blight</span>
+                        </li>
+                        <li class="disease-item diseased">
+                            <svg class="disease-icon" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"/>
+                            </svg>
+                            <span>Late Blight</span>
+                        </li>
+                        <li class="disease-item diseased">
+                            <svg class="disease-icon" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"/>
+                            </svg>
+                            <span>Leaf Mold</span>
+                        </li>
+                        <li class="disease-item diseased">
+                            <svg class="disease-icon" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"/>
+                            </svg>
+                            <span>Septoria Leaf Spot</span>
+                        </li>
+                        <li class="disease-item diseased">
+                            <svg class="disease-icon" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"/>
+                            </svg>
+                            <span>Spider Mites (Two-spotted)</span>
+                        </li>
+                        <li class="disease-item diseased">
+                            <svg class="disease-icon" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"/>
+                            </svg>
+                            <span>Target Spot</span>
+                        </li>
+                        <li class="disease-item diseased">
+                            <svg class="disease-icon" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"/>
+                            </svg>
+                            <span>Tomato Mosaic Virus</span>
+                        </li>
+                        <li class="disease-item diseased">
+                            <svg class="disease-icon" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"/>
+                            </svg>
+                            <span>Yellow Leaf Curl Virus</span>
+                        </li>
+                        <li class="disease-item healthy">
+                            <svg class="disease-icon" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                            </svg>
+                            <span>Healthy</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="summary-stats">
+                <div class="summary-card">
+                    <div class="summary-value">8</div>
+                    <div class="summary-label">Crop Types</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-value">27</div>
+                    <div class="summary-label">Total Conditions</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-value">19</div>
+                    <div class="summary-label">Disease Types</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-value">8</div>
+                    <div class="summary-label">Healthy States</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title-large">Why Choose PlantAI?</h2>
+                <p class="section-description-large">
+                    Advanced technology meets agricultural expertise to provide you with the most accurate plant disease detection
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Instant Analysis</h3>
+                    <p class="feature-description">
+                        Get results in under a second using our state-of-the-art ResNet34 deep learning model
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 16v-4M12 8h.01"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Comprehensive Database</h3>
+                    <p class="feature-description">
+                        Trained on 50,000+ images covering 27 different plant diseases across 8 crop types
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Expert Recommendations</h3>
+                    <p class="feature-description">
+                        Receive detailed treatment plans and prevention strategies backed by agricultural research
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <path d="M9 3v18M15 3v18M3 9h18M3 15h18"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Multiple Predictions</h3>
+                    <p class="feature-description">
+                        View top 3 most likely diagnoses with confidence scores for better decision making
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v20M2 12h20"/>
+                            <circle cx="12" cy="12" r="9"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Easy to Use</h3>
+                    <p class="feature-description">
+                        Simple, intuitive interface - just upload a photo and get instant results
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Privacy Focused</h3>
+                    <p class="feature-description">
+                        Your images are analyzed securely and not stored or shared with third parties
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v20M2 12h20"/>
+                            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10"/>
+                        </svg>
+                        <span class="logo-text">Plant<span class="logo-highlight">AI</span></span>
+                    </div>
+                    <p class="footer-description">
+                        AI-powered plant disease detection for healthier crops and better yields
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-title">Supported Plants</h4>
+                    <ul class="footer-list">
+                        <li>Tomato</li>
+                        <li>Potato</li>
+                        <li>Apple</li>
+                        <li>Grape</li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-title">Resources</h4>
+                    <ul class="footer-list">
+                        <li>Peach</li>
+                        <li>Strawberry</li>
+                        <li>Orange</li>
+                        <li>Squash</li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-title">Technology</h4>
+                    <ul class="footer-list">
+                        <li>ResNet34 Architecture</li>
+                        <li>PyTorch Framework</li>
+                        <li>Deep Learning</li>
+                        <li>Computer Vision</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    &copy; 2025 PlantAI. Built with advanced deep learning for agricultural innovation.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
+

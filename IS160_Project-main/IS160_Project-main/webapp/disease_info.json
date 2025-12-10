@@ -1,0 +1,781 @@
+{
+  "Apple___Apple_scab": {
+    "description": "Apple scab is a common disease of apple and crabapple trees, caused by the fungus Venturia inaequalis. It appears as olive-green to brown lesions on leaves and fruit, leading to defoliation and fruit damage.",
+    "symptoms": [
+      "Olive-green to brown spots on leaves",
+      "Velvety or fuzzy appearance on lesions",
+      "Leaf curling and distortion",
+      "Scabby lesions on fruit surface",
+      "Premature leaf drop"
+    ],
+    "causes": [
+      "Fungal infection by Venturia inaequalis",
+      "Favored by cool, wet weather in spring",
+      "Spreads through water splash and wind",
+      "Overwintering in fallen leaves"
+    ],
+    "treatment": [
+      "Apply fungicides (captan, myclobutanil) at first sign of infection",
+      "Remove and destroy infected leaves and fruit",
+      "Prune to improve air circulation",
+      "Apply fungicide sprays starting at bud break",
+      "Use resistant apple varieties when possible"
+    ],
+    "prevention": [
+      "Rake and destroy fallen leaves in autumn",
+      "Plant resistant apple varieties (e.g., Liberty, Enterprise, Freedom)",
+      "Ensure good air circulation through proper spacing",
+      "Apply preventive fungicide sprays in spring",
+      "Avoid overhead irrigation"
+    ]
+  },
+  "Apple___Black_rot": {
+    "description": "Black rot is a fungal disease affecting apples, caused by Botryosphaeria obtusa. It causes leaf spot, fruit rot, and limb cankers, potentially devastating apple crops if left untreated.",
+    "symptoms": [
+      "Purple spots on leaves with dark borders",
+      "Leaf spots enlarge and turn brown",
+      "Fruit develops brown rot starting at blossom end",
+      "Mummified fruit turns black",
+      "Cankers on branches and limbs"
+    ],
+    "causes": [
+      "Fungal pathogen Botryosphaeria obtusa",
+      "Spreads through rain splash and wind",
+      "Infection occurs through wounds",
+      "Favored by warm, humid conditions"
+    ],
+    "treatment": [
+      "Remove mummified fruit from trees and ground",
+      "Prune out infected branches and cankers",
+      "Apply fungicides (captan, thiophanate-methyl) during growing season",
+      "Destroy all infected plant material",
+      "Maintain tree vigor through proper fertilization"
+    ],
+    "prevention": [
+      "Remove all mummified fruit before spring",
+      "Prune to improve air circulation",
+      "Apply preventive fungicide sprays",
+      "Avoid wounding trees during maintenance",
+      "Practice good orchard sanitation"
+    ]
+  },
+  "Apple___Cedar_apple_rust": {
+    "description": "Cedar apple rust is a fungal disease requiring two hosts: apple/crabapple trees and cedar trees. It causes distinctive orange spots on apple leaves and fruit.",
+    "symptoms": [
+      "Bright yellow-orange spots on upper leaf surface",
+      "Tube-like structures on leaf underside",
+      "Premature leaf drop",
+      "Orange lesions on fruit",
+      "Reduced fruit quality"
+    ],
+    "causes": [
+      "Fungus Gymnosporangium juniperi-virginianae",
+      "Alternates between apple and cedar hosts",
+      "Spores released from cedar galls in spring",
+      "Wet, humid spring weather favors infection"
+    ],
+    "treatment": [
+      "Apply fungicides (myclobutanil, propiconazole) at pink bud stage",
+      "Continue fungicide applications through early summer",
+      "Remove nearby cedar trees if possible",
+      "Remove galls from cedar trees in late winter",
+      "Use resistant apple varieties"
+    ],
+    "prevention": [
+      "Plant resistant apple varieties (e.g., Freedom, Liberty, Enterprise)",
+      "Remove cedar trees within 2-4 miles if feasible",
+      "Apply preventive fungicides starting at bud break",
+      "Maintain tree health through proper care",
+      "Monitor and remove cedar galls before spring"
+    ]
+  },
+  "Apple___healthy": {
+    "description": "Your apple plant appears healthy! Continue maintaining good care practices to keep your plant disease-free.",
+    "symptoms": [
+      "No visible disease symptoms detected"
+    ],
+    "causes": [
+      "Not applicable - plant is healthy"
+    ],
+    "treatment": [
+      "No treatment needed - plant is healthy"
+    ],
+    "prevention": [
+      "Continue regular monitoring for disease symptoms",
+      "Maintain proper watering schedule",
+      "Ensure adequate nutrition",
+      "Prune regularly for good air circulation",
+      "Practice good garden hygiene",
+      "Remove fallen leaves and debris"
+    ]
+  },
+  "Grape___Black_rot": {
+    "description": "Black rot is one of the most serious diseases of grapes, caused by the fungus Guignardia bidwellii. It can cause complete crop loss in warm, humid climates.",
+    "symptoms": [
+      "Small tan spots with dark borders on leaves",
+      "Lesions on shoots and tendrils",
+      "Fruit develops brown circular spots",
+      "Infected berries shrivel into hard, black mummies",
+      "Severe defoliation in advanced cases"
+    ],
+    "causes": [
+      "Fungal pathogen Guignardia bidwellii",
+      "Spreads through rain splash",
+      "Overwintering in mummified fruit and canes",
+      "Warm, wet weather favors infection"
+    ],
+    "treatment": [
+      "Apply fungicides (mancozeb, captan) regularly",
+      "Remove and destroy all mummified berries",
+      "Prune out infected canes",
+      "Improve air circulation through pruning",
+      "Continue fungicide program through harvest"
+    ],
+    "prevention": [
+      "Remove all mummies and debris before spring",
+      "Prune vines to improve air circulation",
+      "Apply preventive fungicides starting at bud break",
+      "Use resistant grape varieties when available",
+      "Avoid overhead irrigation",
+      "Scout regularly for early symptoms"
+    ]
+  },
+  "Grape___Esca_(Black_Measles)": {
+    "description": "Esca, also known as Black Measles, is a complex fungal disease affecting grapevines. It's caused by several fungi and can lead to vine decline and death.",
+    "symptoms": [
+      "Tiger-striping pattern on leaves (yellow-green areas between veins)",
+      "Dark spots on berries resembling measles",
+      "Sudden wilting of shoots or entire vine",
+      "Wood discoloration and decay",
+      "Reduced vine vigor over time"
+    ],
+    "causes": [
+      "Complex of fungal pathogens (Phaeomoniella, Phaeoacremonium)",
+      "Enters through pruning wounds",
+      "Favored by stress and poor vine health",
+      "More common in older vineyards"
+    ],
+    "treatment": [
+      "Remove severely affected vines",
+      "Prune during dry weather to minimize infection",
+      "Apply wound protectants after pruning",
+      "Maintain vine vigor through proper nutrition",
+      "No fully effective chemical control available"
+    ],
+    "prevention": [
+      "Make pruning cuts during dormancy in dry weather",
+      "Apply wound protectants immediately after pruning",
+      "Disinfect pruning tools between vines",
+      "Maintain vine health through proper irrigation and nutrition",
+      "Use clean, disease-free planting material",
+      "Avoid vine stress"
+    ]
+  },
+  "Grape___healthy": {
+    "description": "Your grape plant appears healthy! Continue maintaining excellent care practices to keep your vines productive and disease-free.",
+    "symptoms": [
+      "No visible disease symptoms detected"
+    ],
+    "causes": [
+      "Not applicable - plant is healthy"
+    ],
+    "treatment": [
+      "No treatment needed - plant is healthy"
+    ],
+    "prevention": [
+      "Continue monitoring for disease symptoms",
+      "Maintain proper pruning practices",
+      "Ensure good air circulation",
+      "Practice integrated pest management",
+      "Maintain consistent irrigation",
+      "Clean up fallen leaves and fruit"
+    ]
+  },
+  "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)": {
+    "description": "Leaf blight, or Isariopsis leaf spot, is a fungal disease that primarily affects grape foliage, causing defoliation and reducing vine vigor.",
+    "symptoms": [
+      "Dark brown to black angular spots on leaves",
+      "Spots may have yellow halos",
+      "Premature leaf drop",
+      "Reduced photosynthesis and vine vigor",
+      "Most severe on lower, older leaves"
+    ],
+    "causes": [
+      "Fungal pathogen Isariopsis clavispora",
+      "Favored by warm, humid conditions",
+      "Spreads through rain splash and wind",
+      "More severe in dense canopies"
+    ],
+    "treatment": [
+      "Apply fungicides (copper-based, mancozeb) at first symptoms",
+      "Remove infected leaves",
+      "Improve air circulation through pruning",
+      "Continue fungicide applications every 10-14 days",
+      "Reduce vine stress"
+    ],
+    "prevention": [
+      "Prune to open up vine canopy",
+      "Ensure good air circulation",
+      "Apply preventive fungicides in humid conditions",
+      "Avoid overhead irrigation",
+      "Remove fallen leaves",
+      "Maintain vine health through proper nutrition"
+    ]
+  },
+  "Orange___Haunglongbing_(Citrus_greening)": {
+    "description": "Huanglongbing (HLB), also called citrus greening, is a devastating bacterial disease spread by Asian citrus psyllids. It has no cure and eventually kills the tree.",
+    "symptoms": [
+      "Yellow shoots and blotchy mottling on leaves",
+      "Lopsided, bitter fruit with green ends",
+      "Premature fruit drop",
+      "Twig dieback and stunted growth",
+      "Tree decline and eventual death"
+    ],
+    "causes": [
+      "Bacterial pathogen Candidatus Liberibacter",
+      "Spread by Asian citrus psyllid insects",
+      "Also spreads through infected plant material",
+      "No cure once infected"
+    ],
+    "treatment": [
+      "Remove and destroy infected trees immediately",
+      "Control psyllid populations with insecticides",
+      "Use systemic insecticides on healthy trees",
+      "Report infection to agricultural authorities",
+      "No cure available - management is preventive"
+    ],
+    "prevention": [
+      "Use only certified disease-free nursery stock",
+      "Control Asian citrus psyllid populations aggressively",
+      "Apply systemic insecticides regularly",
+      "Scout regularly for symptoms",
+      "Remove infected trees immediately",
+      "Support area-wide management programs"
+    ]
+  },
+  "Peach___Bacterial_spot": {
+    "description": "Bacterial spot is a serious disease of peach trees caused by Xanthomonas bacteria. It affects leaves, fruit, and twigs, reducing yield and fruit quality.",
+    "symptoms": [
+      "Small, angular, water-soaked spots on leaves",
+      "Leaf spots turn dark purple to brown",
+      "Shot-hole appearance as dead tissue falls out",
+      "Small, dark lesions on fruit",
+      "Twig cankers and dieback"
+    ],
+    "causes": [
+      "Bacterial pathogen Xanthomonas arboricola",
+      "Spreads through rain splash and wind",
+      "Enters through natural openings and wounds",
+      "Warm, wet weather favors disease"
+    ],
+    "treatment": [
+      "Apply copper-based bactericides",
+      "Use antibiotics (streptomycin) where permitted",
+      "Prune out infected twigs and branches",
+      "Remove heavily infected fruit",
+      "Improve air circulation"
+    ],
+    "prevention": [
+      "Plant resistant peach varieties",
+      "Apply copper sprays in dormant season",
+      "Avoid overhead irrigation",
+      "Prune to improve air circulation",
+      "Use windbreaks to reduce wind-driven rain",
+      "Apply preventive copper sprays before rain"
+    ]
+  },
+  "Peach___healthy": {
+    "description": "Your peach plant appears healthy! Keep up the excellent care to maintain tree health and productivity.",
+    "symptoms": [
+      "No visible disease symptoms detected"
+    ],
+    "causes": [
+      "Not applicable - plant is healthy"
+    ],
+    "treatment": [
+      "No treatment needed - plant is healthy"
+    ],
+    "prevention": [
+      "Continue regular monitoring",
+      "Maintain proper pruning schedule",
+      "Ensure adequate nutrition and water",
+      "Practice good orchard sanitation",
+      "Remove fallen fruit and leaves",
+      "Monitor for pest insects"
+    ]
+  },
+  "Potato___Early_blight": {
+    "description": "Early blight is a common fungal disease of potato caused by Alternaria solani. It affects leaves, stems, and tubers, potentially reducing yield significantly.",
+    "symptoms": [
+      "Dark brown spots with concentric rings (target pattern) on lower leaves",
+      "Yellow halo around leaf spots",
+      "Progressive upward spread to younger leaves",
+      "Premature leaf drop and defoliation",
+      "Lesions on tubers"
+    ],
+    "causes": [
+      "Fungal pathogen Alternaria solani",
+      "Favored by warm, humid conditions",
+      "Spreads through wind and water splash",
+      "Survives in plant debris and soil"
+    ],
+    "treatment": [
+      "Apply fungicides (chlorothalonil, mancozeb) at first symptoms",
+      "Remove infected lower leaves",
+      "Repeat fungicide applications every 7-10 days",
+      "Ensure proper plant nutrition, especially nitrogen",
+      "Maintain adequate soil moisture"
+    ],
+    "prevention": [
+      "Use certified disease-free seed potatoes",
+      "Practice crop rotation (3-4 year cycle)",
+      "Maintain proper plant spacing for air circulation",
+      "Apply preventive fungicides before disease appears",
+      "Remove volunteer potato plants",
+      "Avoid overhead irrigation when possible"
+    ]
+  },
+  "Potato___healthy": {
+    "description": "Your potato plant appears healthy! Continue providing excellent care for a bountiful harvest.",
+    "symptoms": [
+      "No visible disease symptoms detected"
+    ],
+    "causes": [
+      "Not applicable - plant is healthy"
+    ],
+    "treatment": [
+      "No treatment needed - plant is healthy"
+    ],
+    "prevention": [
+      "Continue monitoring for disease",
+      "Maintain consistent soil moisture",
+      "Ensure proper nutrition",
+      "Practice crop rotation",
+      "Use certified seed potatoes",
+      "Scout regularly for pests"
+    ]
+  },
+  "Potato___Late_blight": {
+    "description": "Late blight is the most destructive potato disease, caused by Phytophthora infestans. It can destroy entire crops within days under favorable conditions. This is the same pathogen that caused the Irish Potato Famine.",
+    "symptoms": [
+      "Water-soaked spots on leaves and stems",
+      "White fuzzy growth on leaf undersides",
+      "Brown-black lesions rapidly expanding",
+      "Entire plant collapse within days",
+      "Brown rot in tubers"
+    ],
+    "causes": [
+      "Oomycete pathogen Phytophthora infestans",
+      "Spreads extremely rapidly in cool, wet conditions",
+      "Wind-blown spores can travel miles",
+      "Survives in infected tubers and plant debris"
+    ],
+    "treatment": [
+      "IMMEDIATE action required - apply fungicides urgently",
+      "Remove and destroy infected plants",
+      "Apply systemic fungicides (metalaxyl, mefenoxam)",
+      "Destroy infected tubers",
+      "Do not compost infected material"
+    ],
+    "prevention": [
+      "Use certified disease-free seed potatoes",
+      "Plant resistant potato varieties",
+      "Apply preventive fungicides before disease appears",
+      "Monitor local late blight alerts",
+      "Ensure excellent air circulation",
+      "Avoid overhead irrigation",
+      "Destroy volunteer potato plants and cull piles"
+    ]
+  },
+  "Squash___Powdery_mildew": {
+    "description": "Powdery mildew is a common fungal disease affecting squash and other cucurbits. It appears as white powdery patches on leaves and can reduce yield and fruit quality.",
+    "symptoms": [
+      "White powdery patches on upper leaf surfaces",
+      "Patches expand and may cover entire leaves",
+      "Yellowing and death of infected leaves",
+      "Reduced photosynthesis and plant vigor",
+      "Reduced fruit quality and size"
+    ],
+    "causes": [
+      "Fungal pathogens (primarily Podosphaera xanthii)",
+      "Favored by warm days and cool nights",
+      "Spreads through airborne spores",
+      "Can develop in both humid and dry conditions"
+    ],
+    "treatment": [
+      "Apply fungicides (sulfur, potassium bicarbonate, myclobutanil)",
+      "Remove heavily infected leaves",
+      "Spray both sides of leaves",
+      "Apply weekly during active infection",
+      "Organic options: neem oil, milk spray (1:9 milk:water)"
+    ],
+    "prevention": [
+      "Plant resistant squash varieties",
+      "Ensure good air circulation through proper spacing",
+      "Water at soil level, avoid wetting foliage",
+      "Apply preventive fungicides in susceptible varieties",
+      "Remove plant debris at end of season",
+      "Avoid excess nitrogen fertilization"
+    ]
+  },
+  "Strawberry___healthy": {
+    "description": "Your strawberry plant appears healthy! Continue your excellent care practices for sweet, delicious berries.",
+    "symptoms": [
+      "No visible disease symptoms detected"
+    ],
+    "causes": [
+      "Not applicable - plant is healthy"
+    ],
+    "treatment": [
+      "No treatment needed - plant is healthy"
+    ],
+    "prevention": [
+      "Continue regular monitoring",
+      "Maintain proper spacing for air circulation",
+      "Remove old leaves and debris",
+      "Water at soil level",
+      "Practice crop rotation",
+      "Remove runners to maintain plant health"
+    ]
+  },
+  "Strawberry___Leaf_scorch": {
+    "description": "Leaf scorch is a fungal disease of strawberries caused by Diplocarpon earlianum. It can significantly reduce plant vigor and fruit production if not managed.",
+    "symptoms": [
+      "Small purple to reddish spots on leaves",
+      "Spots enlarge and centers turn grayish-white",
+      "Spots may merge, giving scorched appearance",
+      "Severe infections cause leaf death",
+      "Reduced runner and fruit production"
+    ],
+    "causes": [
+      "Fungal pathogen Diplocarpon earlianum",
+      "Spreads through water splash",
+      "Favored by warm, humid conditions",
+      "Survives in old infected leaves"
+    ],
+    "treatment": [
+      "Apply fungicides (captan, myclobutanil) at first symptoms",
+      "Remove and destroy infected leaves",
+      "Improve air circulation",
+      "Repeat applications every 7-10 days",
+      "Renovate beds after harvest"
+    ],
+    "prevention": [
+      "Plant resistant strawberry varieties",
+      "Ensure good air circulation through proper spacing",
+      "Water at soil level, avoid wetting foliage",
+      "Remove old leaves in spring and after harvest",
+      "Apply preventive fungicides during wet periods",
+      "Practice crop rotation"
+    ]
+  },
+  "Tomato___Bacterial_spot": {
+    "description": "Bacterial spot is a significant disease of tomatoes caused by Xanthomonas bacteria. It affects leaves, stems, and fruit, reducing yield and marketability.",
+    "symptoms": [
+      "Small, dark, greasy-looking spots on leaves",
+      "Spots may have yellow halos",
+      "Severe defoliation in advanced cases",
+      "Raised spots on fruit with white halos",
+      "Fruit lesions reduce marketability"
+    ],
+    "causes": [
+      "Bacterial pathogen Xanthomonas species",
+      "Spreads through contaminated seed, transplants, and tools",
+      "Water splash and wind-driven rain spread bacteria",
+      "Warm, wet weather favors disease"
+    ],
+    "treatment": [
+      "Apply copper-based bactericides",
+      "Use biological controls (Bacillus subtilis)",
+      "Remove severely infected plants",
+      "Avoid working with plants when wet",
+      "Improve air circulation"
+    ],
+    "prevention": [
+      "Use certified disease-free seed and transplants",
+      "Rotate crops with non-host plants for 2-3 years",
+      "Avoid overhead irrigation",
+      "Stake and prune plants for air circulation",
+      "Disinfect tools between plants",
+      "Apply copper sprays preventively"
+    ]
+  },
+  "Tomato___Early_blight": {
+    "description": "Early blight is one of the most common tomato diseases, caused by Alternaria solani fungus. It can significantly reduce yield through defoliation and fruit damage.",
+    "symptoms": [
+      "Dark brown spots with concentric rings (target pattern) on lower leaves",
+      "Yellow halo around leaf spots",
+      "Progressive upward spread",
+      "Stem lesions near soil line",
+      "Dark, sunken spots on fruit near stem end"
+    ],
+    "causes": [
+      "Fungal pathogen Alternaria solani",
+      "Favored by warm, humid conditions",
+      "Spreads through water splash",
+      "Survives in plant debris and soil"
+    ],
+    "treatment": [
+      "Apply fungicides (chlorothalonil, mancozeb) immediately",
+      "Remove infected lower leaves",
+      "Mulch to prevent soil splash",
+      "Repeat fungicide applications every 7-10 days",
+      "Maintain plant vigor with proper nutrition"
+    ],
+    "prevention": [
+      "Use disease-free transplants",
+      "Practice crop rotation (3-4 years)",
+      "Mulch around plants to reduce splash",
+      "Water at soil level",
+      "Space plants properly for air circulation",
+      "Apply preventive fungicides in humid conditions",
+      "Remove plant debris at season end"
+    ]
+  },
+  "Tomato___healthy": {
+    "description": "Your tomato plant appears healthy! Continue your excellent care for a productive harvest.",
+    "symptoms": [
+      "No visible disease symptoms detected"
+    ],
+    "causes": [
+      "Not applicable - plant is healthy"
+    ],
+    "treatment": [
+      "No treatment needed - plant is healthy"
+    ],
+    "prevention": [
+      "Continue monitoring regularly",
+      "Maintain consistent watering",
+      "Ensure proper nutrition",
+      "Prune for air circulation",
+      "Mulch to reduce soil splash",
+      "Remove lower leaves as plant grows"
+    ]
+  },
+  "Tomato___Late_blight": {
+    "description": "Late blight is the most destructive tomato disease, caused by Phytophthora infestans. It can destroy entire crops within days under favorable conditions.",
+    "symptoms": [
+      "Large, water-soaked spots on leaves",
+      "White fuzzy growth on leaf undersides",
+      "Brown-black lesions rapidly expanding",
+      "Entire plant collapse within days",
+      "Firm, brown rot on fruit"
+    ],
+    "causes": [
+      "Oomycete pathogen Phytophthora infestans",
+      "Spreads extremely rapidly in cool, wet conditions",
+      "Wind-blown spores can travel long distances",
+      "Survives in infected potato tubers and tomato debris"
+    ],
+    "treatment": [
+      "IMMEDIATE fungicide application required",
+      "Remove and destroy infected plants",
+      "Apply systemic fungicides (mefenoxam, cymoxanil)",
+      "Do NOT compost infected material",
+      "Apply fungicides to neighboring plants immediately"
+    ],
+    "prevention": [
+      "Use resistant tomato varieties",
+      "Monitor local late blight alerts",
+      "Apply preventive fungicides before disease appears",
+      "Ensure excellent air circulation",
+      "Avoid overhead irrigation",
+      "Space plants widely",
+      "Remove volunteer tomato and potato plants"
+    ]
+  },
+  "Tomato___Leaf_Mold": {
+    "description": "Leaf mold is a fungal disease primarily affecting greenhouse and high-tunnel tomatoes, caused by Passalora fulva (formerly Cladosporium fulvum).",
+    "symptoms": [
+      "Pale green to yellow spots on upper leaf surface",
+      "Olive-green to grayish-purple velvety growth on leaf undersides",
+      "Spots coalesce causing leaf yellowing",
+      "Severe defoliation in advanced cases",
+      "Rarely affects fruit"
+    ],
+    "causes": [
+      "Fungal pathogen Passalora fulva",
+      "Favored by high humidity (above 85%)",
+      "Poor air circulation promotes disease",
+      "Optimal temperature 70-80°F (21-27°C)"
+    ],
+    "treatment": [
+      "Reduce humidity through ventilation",
+      "Remove infected leaves",
+      "Apply fungicides (chlorothalonil, mancozeb)",
+      "Increase air circulation",
+      "Reduce leaf wetness duration"
+    ],
+    "prevention": [
+      "Maintain good greenhouse ventilation",
+      "Space plants properly",
+      "Keep humidity below 85%",
+      "Use resistant tomato varieties",
+      "Avoid overhead watering",
+      "Prune for better air flow",
+      "Heat greenhouse to reduce humidity"
+    ]
+  },
+  "Tomato___Septoria_leaf_spot": {
+    "description": "Septoria leaf spot is a common fungal disease that can cause severe defoliation in tomatoes, reducing yield and exposing fruit to sunscald.",
+    "symptoms": [
+      "Small, circular spots with dark borders on leaves",
+      "Spots have grayish-white centers",
+      "Tiny black specks (pycnidia) in spot centers",
+      "Starts on lower leaves and progresses upward",
+      "Severe defoliation if untreated"
+    ],
+    "causes": [
+      "Fungal pathogen Septoria lycopersici",
+      "Favored by warm, wet conditions",
+      "Spreads through water splash",
+      "Survives in plant debris and soil"
+    ],
+    "treatment": [
+      "Apply fungicides (chlorothalonil, mancozeb) immediately",
+      "Remove infected lower leaves",
+      "Mulch to prevent splash",
+      "Repeat applications every 7-10 days",
+      "Improve air circulation"
+    ],
+    "prevention": [
+      "Practice crop rotation (3-4 years)",
+      "Mulch heavily to prevent soil splash",
+      "Water at soil level only",
+      "Stake and prune plants for air circulation",
+      "Remove lower leaves as plant grows",
+      "Apply preventive fungicides in wet weather",
+      "Clean up all plant debris at season end"
+    ]
+  },
+  "Tomato___Spider_mites Two-spotted_spider_mite": {
+    "description": "Two-spotted spider mites are tiny arachnids that feed on tomato plants, causing stippling, yellowing, and potentially severe damage under hot, dry conditions.",
+    "symptoms": [
+      "Fine stippling or speckling on leaves",
+      "Yellowing and bronzing of leaves",
+      "Fine webbing on leaf undersides",
+      "Leaf curling and drying",
+      "Severely affected leaves drop"
+    ],
+    "causes": [
+      "Two-spotted spider mite (Tetranychus urticae)",
+      "Favored by hot, dry, dusty conditions",
+      "Rapid reproduction in warm weather",
+      "Often worse on water-stressed plants"
+    ],
+    "treatment": [
+      "Spray plants forcefully with water to dislodge mites",
+      "Apply insecticidal soap or neem oil",
+      "Use miticides (abamectin, bifenazate) for severe infestations",
+      "Release predatory mites (Phytoseiulus persimilis)",
+      "Repeat treatments every 5-7 days"
+    ],
+    "prevention": [
+      "Maintain adequate soil moisture",
+      "Avoid drought stress",
+      "Increase humidity around plants",
+      "Encourage beneficial insects",
+      "Avoid excessive nitrogen fertilization",
+      "Remove dusty conditions",
+      "Monitor regularly, especially in hot weather"
+    ]
+  },
+  "Tomato___Target_Spot": {
+    "description": "Target spot is a fungal disease that can cause significant defoliation in tomatoes, particularly in warm, humid climates.",
+    "symptoms": [
+      "Brown spots with concentric rings on leaves",
+      "Spots may have yellow halos",
+      "Affects leaves, stems, and fruit",
+      "Lesions on fruit near stem end",
+      "Severe defoliation if untreated"
+    ],
+    "causes": [
+      "Fungal pathogen Corynespora cassiicola",
+      "Favored by warm, humid conditions",
+      "Spreads through water splash and wind",
+      "Survives in plant debris"
+    ],
+    "treatment": [
+      "Apply fungicides (chlorothalonil, azoxystrobin) at first symptoms",
+      "Remove infected leaves",
+      "Improve air circulation",
+      "Repeat applications every 7-14 days",
+      "Mulch to reduce splash"
+    ],
+    "prevention": [
+      "Use disease-resistant varieties where available",
+      "Practice crop rotation",
+      "Mulch to prevent soil splash",
+      "Water at soil level",
+      "Ensure good air circulation",
+      "Remove plant debris at season end",
+      "Apply preventive fungicides in humid conditions"
+    ]
+  },
+  "Tomato___Tomato_mosaic_virus": {
+    "description": "Tomato mosaic virus is a highly contagious viral disease that can significantly reduce tomato yields and fruit quality. It spreads easily through contact.",
+    "symptoms": [
+      "Mottled light and dark green pattern on leaves",
+      "Leaf distortion and curling",
+      "Stunted plant growth",
+      "Reduced fruit set",
+      "Fruit may show mottling or browning"
+    ],
+    "causes": [
+      "Tomato mosaic virus (ToMV)",
+      "Spreads through contaminated hands, tools, and clothing",
+      "Very stable virus survives on surfaces",
+      "Can be seed-borne",
+      "Spreads through plant-to-plant contact"
+    ],
+    "treatment": [
+      "NO CURE - remove and destroy infected plants",
+      "Do not compost infected material",
+      "Disinfect all tools with 10% bleach solution",
+      "Wash hands thoroughly after handling",
+      "Avoid tobacco products before handling plants"
+    ],
+    "prevention": [
+      "Use resistant tomato varieties (Tm gene)",
+      "Use certified disease-free seed and transplants",
+      "Disinfect tools between plants",
+      "Wash hands before handling plants",
+      "Avoid smoking near plants (tobacco carries related virus)",
+      "Remove infected plants immediately",
+      "Control aphids which may spread virus"
+    ]
+  },
+  "Tomato___Tomato_Yellow_Leaf_Curl_Virus": {
+    "description": "Tomato Yellow Leaf Curl Virus (TYLCV) is a devastating viral disease spread by whiteflies. It can cause severe yield losses, especially in warm climates.",
+    "symptoms": [
+      "Yellowing and upward curling of leaves",
+      "Leaf margins curl upward forming cup shape",
+      "Stunted plant growth",
+      "Reduced or no fruit production",
+      "Flowers drop before fruit set"
+    ],
+    "causes": [
+      "Tomato Yellow Leaf Curl Virus",
+      "Spread exclusively by silverleaf whitefly (Bemisia tabaci)",
+      "Whiteflies acquire virus by feeding on infected plants",
+      "Warm climates favor both virus and whitefly"
+    ],
+    "treatment": [
+      "NO CURE - remove and destroy infected plants",
+      "Control whitefly populations aggressively",
+      "Use systemic insecticides (imidacloprid, thiamethoxam)",
+      "Apply reflective mulches to repel whiteflies",
+      "Use insecticidal soap or neem oil"
+    ],
+    "prevention": [
+      "Use resistant tomato varieties (Ty genes)",
+      "Use insect-proof netting in greenhouses",
+      "Control whiteflies with yellow sticky traps",
+      "Apply systemic insecticides at transplanting",
+      "Remove infected plants immediately",
+      "Eliminate weeds that host whiteflies",
+      "Plant early to avoid peak whitefly populations"
+    ]
+  }
+}
+
