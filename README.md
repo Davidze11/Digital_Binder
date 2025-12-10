@@ -2,7 +2,7 @@ AI Projects
 
 Machine Learning • Deep Learning • Reinforcement Learning • AI Wrappers • Multi-Agent Systems
 
-This repository contains all projects and experimental work I completed for IS 160 (Artificial Intelligence).  
+This repository contains all projects and lab work I completed for IS 160 (Artificial Intelligence).  
 The work includes classic ML techniques, deep learning models, reinforcement learning tasks, and AI/agent-based automation systems.
 
 ---
