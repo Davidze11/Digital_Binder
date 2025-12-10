@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CA Wage Data Agent Live Progress Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #a8e6cf 0%, #dcedc8 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            color: #2e7d32;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .pane {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .pane h2 {
+            color: #2e7d32;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #a8e6cf;
+            padding-bottom: 10px;
+        }
+
+        .info-item {
+            margin-bottom: 15px;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+        }
+
+        .info-value {
+            font-size: 1.2em;
+            color: #2e7d32;
+            font-weight: bold;
+        }
+
+        .progress-bar-container {
+            background: #e0e0e0;
+            border-radius: 10px;
+            height: 30px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, #4caf50, #8bc34a);
+            height: 100%;
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .status-pending {
+            background: #ffc107;
+            color: #333;
+        }
+
+        .status-in-progress {
+            background: #2196f3;
+            color: white;
+        }
+
+        .status-completed {
+            background: #4caf50;
+            color: white;
+        }
+
+        .status-error {
+            background: #f44336;
+            color: white;
+        }
+
+        .agent-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .agent-table th {
+            background: #2e7d32;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .agent-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .agent-table tr:hover {
+            background: #f5f5f5;
+        }
+
+        .agent-name {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .agent-status {
+            text-align: center;
+        }
+
+        .agent-message {
+            color: #555;
+            font-size: 0.9em;
+        }
+
+        .agent-output {
+            color: #777;
+            font-size: 0.85em;
+            font-style: italic;
+        }
+
+        .checkmark {
+            color: #4caf50;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .footer-section {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .footer-section h3 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+        }
+
+        .file-list {
+            list-style: none;
+        }
+
+        .file-list li {
+            padding: 8px;
+            background: #f5f5f5;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+
+        .error-list {
+            list-style: none;
+        }
+
+        .error-list li {
+            padding: 8px;
+            background: #ffebee;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            color: #c62828;
+            font-size: 0.9em;
+        }
+
+        .info-box {
+            background: #fff9c4;
+            border-left: 4px solid #fbc02d;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        .info-box p {
+            margin: 0;
+            color: #333;
+            font-size: 0.9em;
+        }
+
+        .refresh-indicator {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2e7d32;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .loading {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border: 2px solid #fff;
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 5px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .input-section {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+
+        .btn-primary {
+            background: #2e7d32;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1b5e20;
+        }
+
+        .btn-secondary {
+            background: #757575;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #616161;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔍 CA Wage Data Agent Live Progress Dashboard</h1>
+            <div class="subtitle">Real-time updates every 3 seconds</div>
+        </div>
+
+        <div class="input-section" id="inputSection">
+            <h2 style="color: #2e7d32; margin-bottom: 20px;">Start New Analysis</h2>
+            <form id="analysisForm">
+                <div class="form-row">
+                    <div class="input-group">
+                        <label>Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Date of Birth *</label>
+                        <input type="date" id="dob" name="dob" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label>Date of Death *</label>
+                        <input type="date" id="dod" name="dod" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Occupation *</label>
+                        <input type="text" id="occupation" name="occupation" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label>Annual Salary *</label>
+                        <input type="number" id="annual_salary" name="annual_salary" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Sex *</label>
+                        <select id="sex" name="sex" required>
+                            <option value="">Select...</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label>Education Level *</label>
+                        <select id="education_level" name="education_level" required>
+                            <option value="">Select...</option>
+                            <option value="Less than High School">Less than High School</option>
+                            <option value="High School">High School</option>
+                            <option value="Some College">Some College</option>
+                            <option value="Bachelor's">Bachelor's</option>
+                            <option value="Master's">Master's</option>
+                            <option value="Doctoral">Doctoral</option>
+                            <option value="Professional">Professional</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Home County *</label>
+                        <input type="text" id="home_county" name="home_county" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label>Home State *</label>
+                        <input type="text" id="home_state" name="home_state" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Status *</label>
+                        <select id="status" name="status" required>
+                            <option value="">Select...</option>
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-secondary" id="loadExampleBtn">Load Example</button>
+                <button type="submit" class="btn btn-primary" id="startAnalysisBtn">Start Analysis</button>
+            </form>
+        </div>
+
+        <div id="dashboardContent" style="display: none;">
+            <div class="dashboard-grid">
+                <div class="pane">
+                    <h2>Analysis Overview</h2>
+                    <div class="info-item">
+                        <div class="info-label">Session ID</div>
+                        <div class="info-value" id="sessionId">-</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Person</div>
+                        <div class="info-value" id="personName">-</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Status</div>
+                        <div class="info-value">
+                            <span class="status-badge" id="statusBadge">PENDING</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Progress</div>
+                        <div class="info-value" id="progressText">0/8 agents</div>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progressBar" style="width: 0%;">0%</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Current Step</div>
+                        <div class="info-value" id="currentStep" style="font-size: 1em;">Initializing...</div>
+                    </div>
+                </div>
+
+                <div class="pane">
+                    <h2>Agent Flow</h2>
+                    <table class="agent-table">
+                        <thead>
+                            <tr>
+                                <th>Agent</th>
+                                <th>Status</th>
+                                <th>Message</th>
+                                <th>Output</th>
+                            </tr>
+                        </thead>
+                        <tbody id="agentTableBody">
+                            <!-- Agents will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div>
+                        <h3>Generated Files</h3>
+                        <ul class="file-list" id="fileList">
+                            <li>No files generated yet</li>
+                        </ul>
+                        <div id="downloadSection" style="display: none; margin-top: 15px;">
+                            <a href="#" id="downloadExcelBtn" class="btn btn-primary" style="width: 100%; display: block; text-align: center; text-decoration: none; color: white;">
+                                📥 Download Excel Report
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Errors & Issues</h3>
+                        <ul class="error-list" id="errorList">
+                            <li>No errors</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <p><strong>Note:</strong> The project dashboard gives up-to-second update to what the agents are doing.</p>
+            </div>
+        </div>
+
+        <div class="refresh-indicator" id="refreshIndicator">
+            Last updated: <span id="lastUpdate">Never</span>
+            <span class="loading" id="loadingSpinner" style="display: none;"></span>
+        </div>
+    </div>
+
+    <script>
+        let currentSessionId = null;
+        let refreshInterval = null;
+
+        // Load example data
+        document.getElementById('loadExampleBtn').addEventListener('click', async () => {
+            try {
+                const response = await fetch('/api/example');
+                const data = await response.json();
+                
+                document.getElementById('name').value = data.name || '';
+                document.getElementById('dob').value = data.dob || '';
+                document.getElementById('dod').value = data.dod || '';
+                document.getElementById('occupation').value = data.occupation || '';
+                document.getElementById('annual_salary').value = data.annual_salary || '';
+                document.getElementById('sex').value = data.sex || '';
+                document.getElementById('education_level').value = data.education_level || '';
+                document.getElementById('home_county').value = data.home_county || '';
+                document.getElementById('home_state').value = data.home_state || '';
+                document.getElementById('status').value = data.status || '';
+            } catch (error) {
+                console.error('Error loading example:', error);
+            }
+        });
+
+        // Check for session ID in URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const sessionParam = urlParams.get('session');
+        if (sessionParam) {
+            currentSessionId = sessionParam;
+            document.getElementById('inputSection').style.display = 'none';
+            document.getElementById('dashboardContent').style.display = 'block';
+            startProgressUpdates();
+        }
+
+        // Start analysis
+        document.getElementById('analysisForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                dob: document.getElementById('dob').value,
+                dod: document.getElementById('dod').value,
+                occupation: document.getElementById('occupation').value,
+                annual_salary: parseFloat(document.getElementById('annual_salary').value),
+                sex: document.getElementById('sex').value,
+                education_level: document.getElementById('education_level').value,
+                home_county: document.getElementById('home_county').value,
+                home_state: document.getElementById('home_state').value,
+                status: document.getElementById('status').value
+            };
+
+            try {
+                const response = await fetch('/api/analyze', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+                
+                if (result.status === 'started' && result.session_id) {
+                    currentSessionId = result.session_id;
+                    document.getElementById('inputSection').style.display = 'none';
+                    document.getElementById('dashboardContent').style.display = 'block';
+                    startProgressUpdates();
+                } else if (result.status === 'error') {
+                    alert('Error: ' + (result.message || 'Failed to start analysis'));
+                    if (result.errors) {
+                        alert('Validation errors: ' + result.errors.join(', '));
+                    }
+                } else {
+                    alert('Error: ' + (result.message || 'Failed to start analysis'));
+                }
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+        });
+
+        function startProgressUpdates() {
+            // Clear existing interval
+            if (refreshInterval) {
+                clearInterval(refreshInterval);
+            }
+
+            // Initial update
+            updateProgress();
+
+            // Update every 3 seconds
+            refreshInterval = setInterval(updateProgress, 3000);
+        }
+
+        async function updateProgress() {
+            if (!currentSessionId) return;
+
+            try {
+                document.getElementById('loadingSpinner').style.display = 'inline-block';
+                
+                const response = await fetch(`/api/progress/${currentSessionId}`);
+                const data = await response.json();
+
+                if (data.error) {
+                    console.error('Error fetching progress:', data.error);
+                    return;
+                }
+
+                // Update overview
+                document.getElementById('sessionId').textContent = data.session_id;
+                document.getElementById('personName').textContent = data.person_name || '-';
+                document.getElementById('progressText').textContent = `${data.progress}/${data.total_agents} agents`;
+                document.getElementById('currentStep').textContent = data.current_step;
+                
+                // Update progress bar
+                const progressPercent = (data.progress / data.total_agents) * 100;
+                document.getElementById('progressBar').style.width = `${progressPercent}%`;
+                document.getElementById('progressBar').textContent = `${Math.round(progressPercent)}%`;
+
+                // Update status badge
+                const statusBadge = document.getElementById('statusBadge');
+                statusBadge.textContent = data.status;
+                statusBadge.className = 'status-badge status-' + data.status.toLowerCase().replace('_', '-');
+
+                // Update agent table
+                const tbody = document.getElementById('agentTableBody');
+                tbody.innerHTML = '';
+                
+                for (const [agentName, agentData] of Object.entries(data.agents)) {
+                    const row = document.createElement('tr');
+                    
+                    const statusIcon = agentData.status === 'COMPLETED' ? '✓' : 
+                                     agentData.status === 'IN_PROGRESS' ? '⟳' : 
+                                     agentData.status === 'ERROR' ? '✗' : '○';
+                    
+                    const statusClass = 'status-' + agentData.status.toLowerCase().replace('_', '-');
+                    
+                    row.innerHTML = `
+                        <td class="agent-name">${agentName}</td>
+                        <td class="agent-status">
+                            <span class="status-badge ${statusClass}">${statusIcon} ${agentData.status}</span>
+                        </td>
+                        <td class="agent-message">${agentData.message || '-'}</td>
+                        <td class="agent-output">${agentData.output || '-'}</td>
+                    `;
+                    
+                    tbody.appendChild(row);
+                }
+
+                // Update generated files
+                const fileList = document.getElementById('fileList');
+                const downloadSection = document.getElementById('downloadSection');
+                
+                if (data.generated_files && data.generated_files.length > 0) {
+                    fileList.innerHTML = data.generated_files.map(file => `<li>${file}</li>`).join('');
+                    // Show download button if Excel file is available and analysis is completed
+                    const excelFile = data.generated_files.find(file => file.endsWith('.xlsx'));
+                    if (excelFile && (data.status === 'COMPLETED' || data.status === 'completed')) {
+                        downloadSection.style.display = 'block';
+                        // Set download button href
+                        const downloadBtn = document.getElementById('downloadExcelBtn');
+                        downloadBtn.href = `/api/download/${encodeURIComponent(excelFile)}`;
+                    } else {
+                        downloadSection.style.display = 'none';
+                    }
+                } else {
+                    fileList.innerHTML = '<li>No files generated yet</li>';
+                    downloadSection.style.display = 'none';
+                }
+
+                // Update errors
+                const errorList = document.getElementById('errorList');
+                if (data.errors && data.errors.length > 0) {
+                    errorList.innerHTML = data.errors.map(error => `<li>${error}</li>`).join('');
+                } else {
+                    errorList.innerHTML = '<li>No errors</li>';
+                }
+
+                // Update last update time
+                document.getElementById('lastUpdate').textContent = new Date().toLocaleTimeString();
+                document.getElementById('loadingSpinner').style.display = 'none';
+
+                // Stop updating if completed
+                if (data.status === 'COMPLETED' || data.status === 'ERROR') {
+                    clearInterval(refreshInterval);
+                }
+
+            } catch (error) {
+                console.error('Error updating progress:', error);
+                document.getElementById('loadingSpinner').style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
+

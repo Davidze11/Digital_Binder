@@ -1,0 +1,14 @@
+{
+  "name": "John Doe",
+  "dob": "1980-01-15",
+  "dod": "2024-03-20",
+  "occupation": "Software Engineer",
+  "annual_salary": 120000,
+  "sex": "Male",
+  "education_level": "Bachelor's",
+  "home_county": "Los Angeles",
+  "home_state": "California",
+  "status": "Active"
+}
+
+
