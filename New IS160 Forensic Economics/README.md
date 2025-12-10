@@ -1,4 +1,3 @@
-[README.md](https://github.com/user-attachments/files/24067826/README.md)
 # Forensic Economics AI Project
 
 Automated forensic economic loss calculation system for wrongful death cases using multi-agent AI architecture.
