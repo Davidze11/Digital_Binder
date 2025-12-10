@@ -11,7 +11,7 @@ Transform your documents and ideas into professional PowerPoint presentations us
 - ** Smart Charts**: Automatic chart generation from data
 - ** Multiple Interfaces**: Desktop GUI, Web interface, or Command line
 
-## 🎯 Three Ways to Use
+##  Three Ways to Use
 
 ### 1.  Desktop GUI (Recommended)
 - Native desktop application with file browser
